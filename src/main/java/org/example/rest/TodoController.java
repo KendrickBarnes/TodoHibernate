@@ -17,13 +17,13 @@ import java.util.Map;
 public class TodoController {
 
     @Autowired private TodoRepository todoRepository;
-    @CrossOrigin(origins="http://192.168.4.54:4300")
+    //@CrossOrigin(origins="http://192.168.4.54:4300")
     @GetMapping("/")
     public List<Todo> getAllTodos(){
 
         return todoRepository.findAll();
     }
-    @CrossOrigin(origins="http://192.168.4.54:4300")
+    //@CrossOrigin(origins="http://192.168.4.54:4300")
     @GetMapping("/{id}")
     public ResponseEntity<Todo> getTodosById(@PathVariable(value="id") Long todoId) throws ResourceNotFoundException {
 
@@ -33,14 +33,14 @@ public class TodoController {
 
         return ResponseEntity.ok().body(todo);
     }
-    @CrossOrigin(origins="http://192.168.4.54:4300")
+    //@CrossOrigin(origins="http://192.168.4.54:4300")
     @PostMapping
     public Todo createTodo(@Valid @RequestBody Todo todo){
 
         return (Todo) todoRepository.save(todo);
     }
 
-    @CrossOrigin(origins="http://192.168.4.54:4300")
+    //@CrossOrigin(origins="http://192.168.4.54:4300")
     @PutMapping("/{id}")
     public ResponseEntity<Todo> updateTodo(@PathVariable(value="id") Long todoId, @Valid @RequestBody Todo todoDetails) throws ResourceNotFoundException {
 
@@ -54,7 +54,7 @@ public class TodoController {
         return ResponseEntity.ok(updatedTodo);
     }
 
-    @CrossOrigin(origins="http://192.168.4.54:4300")
+    //@CrossOrigin(origins="http://192.168.4.54:4300")
     @DeleteMapping("/{id}")
     public Map <String, Boolean> deleteTodo(@PathVariable(value="id") Long todoId) throws ResourceNotFoundException {
 
